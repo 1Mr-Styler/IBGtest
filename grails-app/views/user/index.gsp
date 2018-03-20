@@ -12,7 +12,7 @@
     <title>My Account</title>
 </head>
 
-<body>
+<body class="page-user-accounts section-user-accounts">
 <div class="content">
     <div class="box-print pull-right">
         <a href="#" title="Print"

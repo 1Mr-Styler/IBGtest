@@ -128,8 +128,7 @@
     <g:layoutHead/>
 </head>
 
-<body class="html not-front logged-in no-sidebars page-user page-user- page-user-119 section-user">
-<body class="html not-front logged-in no-sidebars page-user-accounts section-user-accounts">
+<body class="html not-front logged-in no-sidebars ${pageProperty( name:'body.class' )}">
 <div class="ie-browser-header">
     You are using Internet Explorer 8. Some features might not work or display properly. It is highly recommended to
     update the browser or use a different one.
@@ -184,7 +183,7 @@
     <div class="main-row">
 
         <nav class="nav">
-            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item active">
+            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item <g:if test="${controllerName == 'user'}">active</g:if> ">
                 <div class="icon-accounts" id="accounts-fall">
                     <svg version="1.1" id="account" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -203,7 +202,7 @@
                 <div class="name">Accounts</div>
             </a>
 
-            <a href="transfer.html" class="nav-item">
+            <a href="${createLink(controller: 'transfer', action: 'index')}" class="nav-item <g:if test="${controllerName == 'transfer'}">active</g:if>">
                 <div class="icon-transfer" id="transfer-fall">
                     <svg version="1.1" id="transfer" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -14,7 +14,7 @@ class RegisterController {
         def cop = COP.values()[params.int('field_profile_type[und]')]
         def dob = "${params.dobday}/${params.dobmonth}/${params.dobyear}"
 
-        if(cop == COP.PERSONAL) {
+        if (cop == COP.PERSONAL) {
             def user = new User()
             user.fname = params['field_user_first_name[und][0][value]']
             user.lname = params['field_user_last_name[und][0][value]']
@@ -35,7 +35,7 @@ class RegisterController {
             user.ip = request.getRemoteAddr()
             user.lastlogin = new Date()
 
-            if(!user.validate()) {
+            if (!user.validate()) {
                 flash.message = user.errors
                 print flash.message
             }
@@ -49,5 +49,17 @@ class RegisterController {
         }
 
         render view: 'index'
+    }
+
+    def login() {
+        def user = User.findWhere(username: params.name, password: params.pass)
+
+        if (user) {
+            session['user'] = user
+
+            redirect(controller: 'user')
+        } else {
+            redirect(uri: '/?failed')
+        }
     }
 }

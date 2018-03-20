@@ -86,7 +86,7 @@
                                 <div class="form-item form-type-textfield form-item-field-user-first-name-und-0-value">
                                     <label for="edit-field-user-first-name-und-0-value">First Name <span
                                             class="form-required" title="This field is required.">*</span></label>
-                                    <input class="text-full form-control form-text required" type="text"
+                                    <input required class="text-full form-control form-text required" type="text"
                                            id="edit-field-user-first-name-und-0-value"
                                            name="field_user_first_name[und][0][value]" value="" size="60"
                                            maxlength="500"/>
@@ -100,7 +100,7 @@
                                 <div class="form-item form-type-textfield form-item-field-user-last-name-und-0-value">
                                     <label for="edit-field-user-last-name-und-0-value">Last name <span
                                             class="form-required" title="This field is required.">*</span></label>
-                                    <input class="text-full form-control form-text required" type="text"
+                                    <input required class="text-full form-control form-text required" type="text"
                                            id="edit-field-user-last-name-und-0-value"
                                            name="field_user_last_name[und][0][value]" value="" size="60"
                                            maxlength="500"/>
@@ -112,7 +112,7 @@
                             <div class="form-item form-type-textfield form-item-name">
                                 <label for="edit-name">Username <span class="form-required"
                                                                       title="This field is required.">*</span></label>
-                                <input class="username form-control form-text required" type="text" id="edit-name"
+                                <input required class="username form-control form-text required" type="text" id="edit-name"
                                        name="name" value="" size="60" maxlength="60"/>
                             </div>
 
@@ -121,7 +121,7 @@
                                     <label for="edit-pass">Password <span class="form-required"
                                                                           title="This field is required.">*</span>
                                     </label>
-                                    <input class="form-control form-text required" type="password" id="edit-pass"
+                                    <input required class="form-control form-text required" type="password" id="edit-pass"
                                            name="pass" size="30" maxlength="50"/>
                                 </div>
 
@@ -129,7 +129,7 @@
                                     <label for="edit-pass-confirm">Confirm password <span class="form-required"
                                                                                           title="This field is required.">*</span>
                                     </label>
-                                    <input class="form-control form-text required" type="password"
+                                    <input required class="form-control form-text required" type="password"
                                            id="edit-pass-confirm" name="pass_confirm" size="30" maxlength="50"/>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
                                 <label for="edit-mail">E-mail address <span class="form-required"
                                                                             title="This field is required.">*</span>
                                 </label>
-                                <input class="form-control form-text required" type="text" id="edit-mail" name="mail"
+                                <input required class="form-control form-text required" type="text" id="edit-mail" name="mail"
                                        value="" size="60" maxlength="254"/>
                             </div>
 
@@ -149,7 +149,7 @@
                                         <label for="edit-field-user-confirm-email-address-und-0-value">Confirm Email
                                         Address <span class="form-required" title="This field is required.">*</span>
                                         </label>
-                                        <input class="text-full form-control form-text required" type="text"
+                                        <input required class="text-full form-control form-text required" type="text"
                                                id="edit-field-user-confirm-email-address-und-0-value"
                                                name="field_user_confirm_email_address[und][0][value]" value="" size="60"
                                                maxlength="255"/>
@@ -269,7 +269,7 @@
                             <div id="field-user-passport-number-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-passport-number-und-0-value">
                                     <label for="edit-field-user-passport-number-und-0-value">Document number</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-passport-number-und-0-value"
                                            name="field_user_passport_number[und][0][value]" value="" size="60"
                                            maxlength="255"/>
@@ -804,7 +804,7 @@
                             <div id="field-user-mobile-phone-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-mobile-phone-und-0-value">
                                     <label for="edit-field-user-mobile-phone-und-0-value">Phone Number</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-mobile-phone-und-0-value"
                                            name="field_user_mobile_phone[und][0][value]" value="" size="60"
                                            maxlength="255"/>
@@ -824,7 +824,7 @@
                             <div id="field-user-pa-address-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-pa-address-und-0-value">
                                     <label for="edit-field-user-pa-address-und-0-value">Address</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-pa-address-und-0-value"
                                            name="field_user_pa_address[und][0][value]" value="" size="60"
                                            maxlength="255"/>
@@ -851,7 +851,7 @@
                             <div id="field-user-pa-city-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-pa-city-und-0-value">
                                     <label for="edit-field-user-pa-city-und-0-value">City</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-pa-city-und-0-value"
                                            name="field_user_pa_city[und][0][value]" value="" size="60" maxlength="255"/>
                                 </div>
@@ -863,7 +863,7 @@
                             <div id="field-user-pa-state-prov-region-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-pa-state-prov-region-und-0-value">
                                     <label for="edit-field-user-pa-state-prov-region-und-0-value">State/Province/Region</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-pa-state-prov-region-und-0-value"
                                            name="field_user_pa_state_prov_region[und][0][value]" value="" size="60"
                                            maxlength="255"/>
@@ -876,7 +876,7 @@
                             <div id="field-user-pa-zip-postal-code-add-more-wrapper">
                                 <div class="form-item form-type-textfield form-item-field-user-pa-zip-postal-code-und-0-value">
                                     <label for="edit-field-user-pa-zip-postal-code-und-0-value">Zip/Postal Code</label>
-                                    <input class="text-full form-control form-text" type="text"
+                                    <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-pa-zip-postal-code-und-0-value"
                                            name="field_user_pa_zip_postal_code[und][0][value]" value="" size="60"
                                            maxlength="255"/>
@@ -1167,7 +1167,7 @@
                             <label for="edit-questions-0-answer">Answer <span class="form-required"
                                                                               title="This field is required.">*</span>
                             </label>
-                            <input class="form-control form-text required" type="text" id="edit-questions-0-answer"
+                            <input required class="form-control form-text required" type="text" id="edit-questions-0-answer"
                                    name="questions[0][answer]" value="" size="60" maxlength="128"/>
                         </div>
 
@@ -1177,7 +1177,7 @@
                             <div class="form-item form-type-textfield form-item-captcha-response">
                                 <label for="edit-captcha-response">Enter the text in the image <span
                                         class="form-required" title="This field is required.">*</span></label>
-                                <input class="form-control form-text required" type="text" id="edit-captcha-response"
+                                <input required class="form-control form-text required" type="text" id="edit-captcha-response"
                                        name="captcha_response" value="" size="15" maxlength="128"/>
                             </div>
                             <img src="${assetPath(src: 'image_captcha-sid=14&ts=1521489144.jpeg')}" width="180" height="60"

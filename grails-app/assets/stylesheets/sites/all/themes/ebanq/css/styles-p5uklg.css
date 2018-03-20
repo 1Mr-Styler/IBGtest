@@ -1,0 +1,112 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+
+/* HTML element (SMACSS base) rules */
+@import "normalize.css";
+
+/* Layout rules */
+@import "layouts/responsive.css";
+
+/* Component (SMACSS module) rules */
+@import "components/misc.css";
+/* Optionally, add your own components here. */
+@import "print.css";
+
+/* SMACSS theme rules */
+/* @import "theme-A.css.html"; */
+/* @import "theme-B.css.html"; */
+
+.powered-by {
+    position: absolute;
+    bottom: 0;
+    right: 63px;
+    width: 140px;
+    height: 30px;
+    white-space: nowrap;
+}
+
+a.powered-by-link,
+a.powered-by-link:hover,
+a.powered-by-link:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .powered-by {
+        position: static;
+        float: right;
+        margin-right: 15px;
+        clear:both;
+    }
+}
+
+body.front.not-logged-in {
+    min-height: 100%;
+}
+
+.view-header .top-button {
+    margin-right: 15px;
+}
+
+#ebanq-import-transactions-form #edit-cancel {
+    margin-left: 15px;
+}
+
+.page-transfer-owt h1.title,
+.page-request-transfer h1.title {
+    width: 80%;
+    float: left;
+}
+
+.page-transfer-owt form#ebanq-transfer-outgoing-wire-transfer-form,
+.page-request-transfer form#ebanq-transfer-view-transfer-request-form {
+    clear: both;
+}
+
+.page-messages-new.manager-view .form-item-group {
+    width: 100% !important;
+}
+
+.page-messages-new.manager-view  .ui-selectmenu-open {
+    left: 0 !important;
+    padding-left: 71px;
+    width: 100% !important;
+}
+
+.page-messages-new.manager-view .ui-widget li {
+    width: 100% !important;
+    display: block;
+}
+
+.simple-box {
+    padding: 10px !important;
+    margin-bottom: 10px;
+}
+
+.simple-table {
+    width: 100%;
+}
+
+.simple-table td, .simple-table th {
+    padding: 5px;
+}
+
+.text-format-wrapper .filter-wrapper {
+    display: none;
+}
+
+.form-item-intermediary-bank-country .ui-selectmenu-menu {
+    max-height: 330px;
+    overflow-y: scroll;
+    top: -330px;
+}
+
+.form-item-intermediary-bank-country .ui-selectmenu-menu li {
+    width: 278px !important;
+}

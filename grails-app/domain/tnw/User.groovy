@@ -22,5 +22,9 @@ class User {
     String ip
 
     static constraints = {
+        lastlogin nullable: true
+        ip nullable: true
+        username unique: true
     }
+
 }

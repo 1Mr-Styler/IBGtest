@@ -1,0 +1,16 @@
+.ebanq-displayed-value {
+    position: relative;
+    padding: 10px;
+}
+.ebanq-displayed-value, .ebanq-select-values .ebanq-select-value {
+    cursor: pointer;
+}
+.ebanq-select-values {
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    z-index: 10;
+    right: 0;
+    min-width: 100%;
+}

@@ -604,7 +604,7 @@ label {
 }
 .nav .nav-item.active {
   color: #fff;
-  background: #94c817 url('sites/all/themes/ebanq/images/icon/icon-arrow-nav.png') no-repeat center right;
+  background: #DB2717 url('sites/all/themes/ebanq/images/icon/icon-arrow-nav.png') no-repeat center right;
 }
 .nav .nav-item.active .icon-profile svg path,
 .nav .nav-item.active .icon-messages svg path,
@@ -1064,7 +1064,7 @@ body .box .box-balance label {
 body .box .box-balance .balance {
   font-size: 32px;
   line-height: 105%;
-  color: #94c817;
+  color: #DB2717;
   letter-spacing: 0.4px;
 }
 body .box .box-balance .description-balance {

@@ -1,5 +1,7 @@
 package tnw
 
+import grails.converters.JSON
+
 import javax.transaction.Transactional
 
 class TransferController {
@@ -27,6 +29,23 @@ class TransferController {
             eq('user', user)
         }
         render(view: 'ibt', model: [user: user, accounts: accounts])
+    }
+
+    def owt() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+
+        def user = session['user'] as User
+
+        def accountsCriteria = Account.createCriteria()
+
+        def accounts = accountsCriteria.list {
+            eq('user', user)
+        }
+        render(view: 'owt', model: [user: user, accounts: accounts])
     }
 
     @Transactional
@@ -113,5 +132,64 @@ class TransferController {
         }
 
         render(view: 'ibt', model: [user: user, accounts: accounts, jerrors: jerrors])
+    }
+
+    @Transactional
+    def processowt() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+
+        def user = session['user'] as User
+
+        def accountsCriteria = Account.createCriteria()
+
+        def accounts = accountsCriteria.list {
+            eq('user', user)
+        }
+
+        def jerrors = []
+
+        // Check if account is not pending
+        def debitAccount = Account.findByNumber(params.debit_from)
+        if (!debitAccount) {
+            flash.message = "error"
+            jerrors << "No debit account selected."
+            render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors])
+            return
+        }
+        if (debitAccount.accountStatus == AccountStatus.PENDING) {
+            flash.message = "error"
+            jerrors << "Your account is still undergoing review and cannot make transactions at this moment."
+        }
+
+        //Check tan
+        if (params.tan != '3050') {
+            flash.message = "error"
+            jerrors << "Incorrect TAN number."
+        }
+
+        if (jerrors.size() == 0) {
+            flash.message = "success"
+            jerrors << "Your request has been received and is being processed."
+
+            def owt = new Owt(
+                    bank: params.beneficiary_bank_name,
+                    rname: params.beneficiary_customer_name,
+                    raddress: params.beneficiary_customer_address,
+                    account: params.beneficiary_customer_iban,
+                    refmsg: params.information_ref,
+                    amount: params.'amount_to_transfer',
+                    currency: params.currency,
+                    debit: params.debit_from
+            )
+
+            new Transfers(type: TransferType.OWT, owt: owt).save(flush: true)
+        }
+
+        render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors])
+
     }
 }

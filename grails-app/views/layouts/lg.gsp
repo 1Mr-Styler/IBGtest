@@ -183,7 +183,7 @@
     <div class="main-row">
 
         <nav class="nav">
-            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item <g:if test="${controllerName == 'user'}">active</g:if> ">
+            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item <g:if test="${controllerName == 'user' && (actionName != 'reports' || actionName == 'news')}">active</g:if> ">
                 <div class="icon-accounts" id="accounts-fall">
                     <svg version="1.1" id="account" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -219,7 +219,7 @@
                 <div class="name">Transfer</div>
             </a>
 
-            <a href="reports.html" class="nav-item">
+            <a href="${createLink(controller: 'user', action: 'reports')}" class="nav-item <g:if test="${actionName == 'reports'}">active</g:if>">
                 <div class="icon-reports" id="reports-fall">
                     <svg version="1.1" id="report" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -242,7 +242,7 @@
                 <div class="name">Reports</div>
             </a>
 
-            <a href="news.html" class="nav-item">
+            <a href="#" class="nav-item <g:if test="${actionName == 'news'}">active</g:if>">
                 <div class="icon-news" id="news-fall">
                     <svg version="1.1" id="new" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink"

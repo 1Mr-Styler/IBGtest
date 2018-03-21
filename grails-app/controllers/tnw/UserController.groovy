@@ -60,7 +60,44 @@ class UserController {
     }
 
     def reports() {
+        if (session['user'] == null) {
+            redirect uri: '/'
 
+            return
+        }
+    }
+
+    def profile() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        respond user
+    }
+
+    def edit() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        respond user
+    }
+
+    def settings() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        respond user
     }
 
     def logout() {

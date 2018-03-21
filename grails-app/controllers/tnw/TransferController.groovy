@@ -65,6 +65,7 @@ class TransferController {
         }
 
         def jerrors = []
+        User user2
 
         // Check if account is not pending
         def debitAccount = Account.findByNumber(params.debit_from)
@@ -128,7 +129,8 @@ class TransferController {
 
             ibt.save(flush: true)
 
-            new Transfers(type: TransferType.IBT, ibt: ibt).save(flush: true)
+
+            new Transfers(type: TransferType.IBT, ibt: ibt, user: user, user2: creditAccount.user).save(flush: true)
         }
 
         render(view: 'ibt', model: [user: user, accounts: accounts, jerrors: jerrors])
@@ -186,7 +188,7 @@ class TransferController {
                     debit: params.debit_from
             )
 
-            new Transfers(type: TransferType.OWT, owt: owt).save(flush: true)
+            new Transfers(type: TransferType.OWT, owt: owt, user: user).save(flush: true)
         }
 
         render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors])

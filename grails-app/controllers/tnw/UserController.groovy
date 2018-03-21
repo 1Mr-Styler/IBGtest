@@ -1,5 +1,6 @@
 package tnw
 
+import com.sun.org.apache.xpath.internal.operations.Bool
 import grails.converters.JSON
 
 class UserController {
@@ -45,6 +46,11 @@ class UserController {
 
             }
         }
+
+        //Check uread messages
+        def c = Conversation.findAllByReceiverAndOpened(user, 0)
+
+        if (c.size() > 0) flash.message = 'ok'
 
 
         render(view: 'index', model: [user: user, accounts: accounts, ats: ats, transfers: transfers, data: data])

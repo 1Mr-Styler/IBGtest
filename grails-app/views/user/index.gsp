@@ -25,6 +25,14 @@
 
     <div class="clearfix"></div>
 
+    <g:if test="${flash.message}">
+        <div class="messages--success messages success">
+            <h2 class="element-invisible"> message</h2>
+            <ul class="messages__list">
+                    <li class="messages__item">You have an unread message!</li>
+            </ul>
+        </div>
+    </g:if>
 
     <div class="dropdown small-screen-tabs">
         <a class="btn btn-default-themes dropdown-toggle" data-toggle="dropdown">

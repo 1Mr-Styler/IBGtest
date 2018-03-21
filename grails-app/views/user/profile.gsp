@@ -26,7 +26,7 @@
             <li class="active"><a href="#" class="active">Profile</a></li>
             <li><a href="${createLink(controller: 'user', action: 'edit')}">Edit Profile</a></li>
             <li><a href="${createLink(controller: 'user', action: 'settings')}">Settings</a></li>
-            <li><a href="119/documents.html">Files</a></li>
+            <li><a href="#">Files</a></li>
         </ul>
     </div>
 
@@ -34,7 +34,7 @@
         <li class="active"><a href="#" class="active">Profile</a></li>
         <li><a href="${createLink(controller: 'user', action: 'edit')}">Edit Profile</a></li>
         <li><a href="${createLink(controller: 'user', action: 'settings')}">Settings</a></li>
-        <li><a href="119/documents.html">Files</a></li>
+        <li><a href="#">Files</a></li>
     </ul>
 
 

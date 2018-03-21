@@ -43,6 +43,8 @@ class RegisterController {
             user.save(flush: true)
 
             new Account(user: user).save(flush: true)
+            new Settings(user: user).save(flush: true)
+
 
         } else {
             flash.message = "You can only open a Personal Account from this portal"

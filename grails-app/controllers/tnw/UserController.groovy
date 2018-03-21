@@ -1,6 +1,6 @@
 package tnw
 
-import org.hibernate.criterion.Order
+import grails.converters.JSON
 
 class UserController {
 
@@ -96,8 +96,48 @@ class UserController {
             return
         }
         def user = session['user'] as User
+        def settings = Settings.findByUser(user)
 
-        respond user
+        def question = params['questions[0][question]']
+
+        if (question != '') {
+            def answer = params['questions[0][answer]']
+            if (answer && answer != '') {
+                user.security = question
+                user.answer = answer
+                user.save(flush: true)
+            }
+        }
+
+        if (params.op == 'Save changes') {
+            if (params['email_notification_when_internal_message'])
+                settings.emailNotificationWhenInternalMessage = 1
+            else settings.emailNotificationWhenInternalMessage = 0
+
+            if (params['email_notification_unread_news_available'])
+                settings.emailNotificationUnreadNewsAvailable = 1
+            else settings.emailNotificationUnreadNewsAvailable = 0
+
+            if (params['email_notification_when_login_fails'])
+                settings.emailNotificationWhenLoginFails = 1
+            else settings.emailNotificationWhenLoginFails = 0
+
+            if (params['email_notification_when_funds_added'])
+                settings.emailNotificationWhenFundsAdded = 1
+            else settings.emailNotificationWhenFundsAdded = 0
+
+            if (params['internal_notification_when_executed'])
+                settings.internalNotificationWhenExecuted = 1
+            else settings.internalNotificationWhenExecuted = 0
+
+            if (params['internal_notification_when_received_transfer'])
+                settings.internalNotificationWhenReceivedTransfer = 1
+            else settings.internalNotificationWhenReceivedTransfer = 0
+        }
+
+        settings.save(flush: true)
+
+        render view: 'settings', model: [userInstance: user, settings: settings]
     }
 
     def logout() {

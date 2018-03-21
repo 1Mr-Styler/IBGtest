@@ -140,6 +140,31 @@ class UserController {
         render view: 'settings', model: [userInstance: user, settings: settings]
     }
 
+    def messages () {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        def converstions = Conversation.findAllByReceiver(user)
+
+        render(view: 'messages', converstions: converstions)
+    }
+
+    def sent() {
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        def converstions = Conversation.findAllBySender(user)
+
+        render(view: 'sent', converstions: converstions)
+    }
     def logout() {
         session['user'] = null
         redirect uri: '/'

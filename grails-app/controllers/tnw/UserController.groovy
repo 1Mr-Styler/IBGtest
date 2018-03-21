@@ -140,7 +140,7 @@ class UserController {
         render view: 'settings', model: [userInstance: user, settings: settings]
     }
 
-    def messages () {
+    def messages() {
         if (session['user'] == null) {
             redirect uri: '/'
 
@@ -148,9 +148,9 @@ class UserController {
         }
         def user = session['user'] as User
 
-        def converstions = Conversation.findAllByReceiver(user)
+        def conversations = Conversation.findAllByReceiver(user)
 
-        render(view: 'messages', converstions: converstions)
+        render(view: 'messages',  model: [conversations: conversations])
     }
 
     def sent() {
@@ -161,10 +161,48 @@ class UserController {
         }
         def user = session['user'] as User
 
-        def converstions = Conversation.findAllBySender(user)
+        def conversations = Conversation.findAllBySender(user)
 
-        render(view: 'sent', converstions: converstions)
+        render(view: 'sent', model: [conversations: conversations])
     }
+
+    def compose() {
+
+        if (session['user'] == null) {
+            redirect uri: '/'
+
+            return
+        }
+        def user = session['user'] as User
+
+        def userIsAdmin = user.username == 'admin'
+
+        if (params.subject) {
+            def msg = new Messages(
+                    user1: user,
+                    user2: User.findByUsername('admin'),
+                    subject: params.subject
+            )
+
+            msg.save(flush: true)
+
+            User receiver
+
+            if (userIsAdmin)
+                receiver = User.findByUsername(params.receiver)
+            else receiver = User.findByUsername('admin')
+
+            def convo = new Conversation(message: msg, sender: user, receiver: receiver, note: params.body)
+
+            convo.save(flush: true)
+            print(convo.errors)
+
+            redirect(action: 'sent')
+        }
+
+        render(view: 'compose', model: [userIsAdmin: userIsAdmin])
+    }
+
     def logout() {
         session['user'] = null
         redirect uri: '/'

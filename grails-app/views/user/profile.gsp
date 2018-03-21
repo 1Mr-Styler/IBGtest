@@ -164,7 +164,7 @@
         </div>
     </div>
 
-    <div class="powered-by"><a href="http://www.ebanq.com" class="powered-by-link" target="_blank">Powered by
+    <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by
     IB Groups&reg;</a></div>
 </div>
 </body>

@@ -134,7 +134,7 @@
             </div>
             Card Funding Transfer </a>
     </div>
-    <div class="powered-by"><a href="http://www.ebanq.com" class="powered-by-link" target="_blank">Powered by
+    <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by
     EBANQ®</a></div>
 </div>
 

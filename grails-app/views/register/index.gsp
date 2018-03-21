@@ -1208,7 +1208,7 @@
 </div>
 
 <div class="registration-page-footer">
-    <div class="site-about pull-right"><a href="http://www.ebanq.com" target="_blank" class="powered-by-link">Powered by
+    <div class="site-about pull-right"><a href="#" target="_blank" class="powered-by-link">Powered by
     EBANQ&reg;</a></div>
 </div>
 </body>

@@ -57,7 +57,7 @@
                     <div class="privatemsg-filter-actions form-actions form-wrapper" id="edit-actions--2"><input
                             class="btn btn-success form-submit" type="submit" id="edit-submit--2" name="op"
                             value="Go"/></div>
-                    <a href="new.html" class="btn btn-success">New message</a></div>
+                    <a href="${createLink(controller: 'user', action: 'compose')}" class="btn btn-success">New message</a></div>
             </fieldset>
             <input type="hidden" name="form_build_id" value="form-2AjkrX6M1vAGEMvjiw26b3ZZ9X77XIrOBtAugBiSHu4"/>
             <input type="hidden" name="form_token" value="zmjlWZd5_OK8hrkGduTSxvZZUmtgATVvfXWt7O-BOdc"/>
@@ -126,7 +126,7 @@
         </div>
     </form>
 
-    <div class="powered-by"><a href="http://www.ebanq.com" class="powered-by-link" target="_blank">Powered by
+    <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by
     IB Groups&reg;</a></div>
 </div>
 

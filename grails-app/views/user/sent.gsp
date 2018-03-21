@@ -54,7 +54,7 @@
                     <div class="privatemsg-filter-actions form-actions form-wrapper" id="edit-actions--2"><input
                             class="btn btn-success form-submit" type="submit" id="edit-submit--2" name="op"
                             value="Go"/></div>
-                    <a href="new.html" class="btn btn-success">New message</a></div>
+                    <a href="${createLink(controller: 'user', action: 'compose')}" class="btn btn-success">New message</a></div>
             </fieldset>
             <input type="hidden" name="form_build_id" value="form-2AjkrX6M1vAGEMvjiw26b3ZZ9X77XIrOBtAugBiSHu4"/>
             <input type="hidden" name="form_token" value="zmjlWZd5_OK8hrkGduTSxvZZUmtgATVvfXWt7O-BOdc"/>
@@ -66,7 +66,7 @@
                         <div class="table-header-group">
                             <div class="table-row">
                                 <div class="table-cell privatemsg-header-threadstarted">
-                                    <a href="sent-order=last_updated&amp;sort=asc.html"
+                                    <a href="#"
                                        class="descending active">Date</a></div>
 
                                 <div class="table-cell privatemsg-header-participants">
@@ -74,19 +74,19 @@
                                 </div>
 
                                 <div class="table-cell privatemsg-header-subject">
-                                    <a href="sent-order=subject&amp;sort=desc.html" class="active">Subject</a>
+                                    <a href="#" class="active">Subject</a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="table-row-group">
                             <g:each in="${conversations}" var="conversation">
-                                <div class="table-row action-row" data-row-action="${createLink(controller: 'user', action: 'view', id: conversation)}">
+                                <div class="table-row action-row" data-row-action="${createLink(controller: 'user', action: 'view', id: conversation.id)}">
                                     <div class="right-hover"></div>
 
                                     <div class="table-cell ebanq-message-date">
                                         <div class="left-hover"></div>
-                                        <g:formatDate format="d.M" date="${conversation.date}"/>
+                                        <g:formatDate format="d.MM" date="${conversation.date}"/>
                                         <div class="new-message-indicator"></div>
                                     </div>
 
@@ -123,7 +123,7 @@
         </div>
     </form>
 
-    <div class="powered-by"><a href="http://www.ebanq.com" class="powered-by-link" target="_blank">Powered by
+    <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by
     IB Groups&reg;</a></div>
 </div>
 

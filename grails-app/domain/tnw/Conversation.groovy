@@ -3,7 +3,7 @@ package tnw
 class Conversation {
 
     Messages message
-    Date date
+    Date date = new Date()
     String note
     int opened = 0
     User sender

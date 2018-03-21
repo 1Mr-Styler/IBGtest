@@ -148,7 +148,7 @@
     </a>
 
     <div class="username pull-left">Hi, <span><a href="${createLink(controller: 'user', action: 'profile')}">${session.user.fname} ${session.user.lname}.</a></span></div>
-    <a href="messages.html" class="box-message ">
+    <a href="${createLink(controller: 'user', action: 'messages')}" class="box-message ">
         <div class="mail" id="mail-fall">
             <svg version="1.1" id="mail" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                  x="0px" y="0px"
@@ -282,7 +282,7 @@
                 <div class="name">Profile</div>
             </a>
 
-            <a href="messages.html" class="nav-item messages-nav-item">
+            <a href="${createLink(controller: 'user', action: 'messages')}" class="nav-item messages-nav-item">
                 <div class="icon-messages" id="messages-fall">
                     <svg version="1.1" id="messages" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

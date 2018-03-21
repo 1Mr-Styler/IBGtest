@@ -84,7 +84,7 @@
 
                         <div class="table-row-group">
                             <g:each in="${conversations}" var="conversation">
-                                <div class="table-row action-row" data-row-action="${createLink(controller: 'user', action: 'view', id: conversation)}">
+                                <div class="table-row action-row" data-row-action="${createLink(controller: 'user', action: 'view', id: conversation.id)}">
                                     <div class="right-hover"></div>
 
                                     <div class="table-cell ebanq-message-date">

@@ -147,10 +147,12 @@ class UserController {
             return
         }
         def user = session['user'] as User
+        def userIsAdmin = user.username == 'admin'
 
-        def conversations = Conversation.findAllByReceiver(user)
 
-        render(view: 'messages', model: [conversations: conversations])
+        def conversations = Conversation.findAllByReceiver(user).reverse()
+
+        render(view: 'messages', model: [userIsAdmin: userIsAdmin, conversations: conversations, user: user])
     }
 
     def sent() {
@@ -160,10 +162,12 @@ class UserController {
             return
         }
         def user = session['user'] as User
+        def userIsAdmin = user.username == 'admin'
+
 
         def conversations = Conversation.findAllBySender(user)
 
-        render(view: 'sent', model: [conversations: conversations])
+        render(view: 'sent', model: [userIsAdmin: userIsAdmin, conversations: conversations, user: user])
     }
 
     def compose() {
@@ -219,6 +223,10 @@ class UserController {
             new Conversation(message: conversation.message, sender: user, receiver: receiver, note: params.body).save(flush: true)
         }
 
+        if (!conversation.opened) {
+            conversation.opened = 1
+            conversation.save(flush: true)
+        }
         def msgs = Conversation.findAllByMessage(conversation.message)
 
         render(view: 'view', model: [userIsAdmin: userIsAdmin, conversation: conversation, convos: msgs, user: user])

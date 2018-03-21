@@ -57,7 +57,8 @@
                     <div class="privatemsg-filter-actions form-actions form-wrapper" id="edit-actions--2"><input
                             class="btn btn-success form-submit" type="submit" id="edit-submit--2" name="op"
                             value="Go"/></div>
-                    <a href="${createLink(controller: 'user', action: 'compose')}" class="btn btn-success">New message</a></div>
+                    <a href="${createLink(controller: 'user', action: 'compose')}"
+                       class="btn btn-success">New message</a></div>
             </fieldset>
             <input type="hidden" name="form_build_id" value="form-2AjkrX6M1vAGEMvjiw26b3ZZ9X77XIrOBtAugBiSHu4"/>
             <input type="hidden" name="form_token" value="zmjlWZd5_OK8hrkGduTSxvZZUmtgATVvfXWt7O-BOdc"/>
@@ -84,17 +85,24 @@
 
                         <div class="table-row-group">
                             <g:each in="${conversations}" var="conversation">
-                                <div class="table-row action-row" data-row-action="${createLink(controller: 'user', action: 'view', id: conversation.id)}">
+                                <div class="table-row action-row"
+                                     data-row-action="${createLink(controller: 'user', action: 'view', id: conversation.id)}"
+                                     style="background-color: ${conversation.opened ? "inherit" : "lightgrey"}" }>
                                     <div class="right-hover"></div>
 
                                     <div class="table-cell ebanq-message-date">
                                         <div class="left-hover"></div>
-                                        <g:formatDate format="d.M" date="${conversation.date}"/>
+                                        <g:formatDate format="d.MM" date="${conversation.date}"/>
                                         <div class="new-message-indicator"></div>
                                     </div>
 
                                     <div class="table-cell ebanq-message-to-from">
-                                        Administrator
+                                        <g:if test="${userIsAdmin}">
+                                            ${user.username == conversation.message.user1.username ? conversation.message.user2.fname : conversation.message.user1.fname}
+                                        </g:if>
+                                        <g:else>
+                                            Administrator
+                                        </g:else>
                                     </div>
 
                                     <div class="table-cell ebanq-message-subject">

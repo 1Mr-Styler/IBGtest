@@ -91,7 +91,12 @@
                                     </div>
 
                                     <div class="table-cell ebanq-message-to-from">
-                                        Administrator
+                                        <g:if test="${userIsAdmin}">
+                                            ${user.username == conversation.message.user1.username ? conversation.message.user2.fname : conversation.message.user1.fname}
+                                        </g:if>
+                                        <g:else>
+                                            Administrator
+                                        </g:else>
                                     </div>
 
                                     <div class="table-cell ebanq-message-subject">

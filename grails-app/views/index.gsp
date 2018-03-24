@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="login-bottom-text">
-                    This is a the official portal of the Intercontinental Bankia Online Banking Software. Feel free to contact us should you have any questions,
+                    This is a the official portal of the Intercontinental Bank Online Banking Software. Feel free to contact us should you have any questions,
                     but do not release private information to customer representatives.
                 </div>
             </div>
@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    <div class="powered-by"><a href="http://www.intercontinentalbankia.com" class="powered-by-link" target="_blank">Powered by
+    <div class="powered-by"><a href="http://itcbcorp.com" class="powered-by-link" target="_blank">Powered by
     Intercontinental Groups&reg;</a></div>
 </div>
 </body>

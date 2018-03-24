@@ -70,9 +70,9 @@
                                                     <div class="account-number">${account.number}</div>
 
                                                     <div class="account-details">
-                                                        <div class="account-currency">${account.currency.name()}</div>
+                                                        <!--<div class="account-currency">${account.currency.name()}</div>-->
 
-                                                        <div class="account-available">${account.available}</div>
+                                                        <div class="account-available"> ${formatNumber(number: account.available, type: 'currency', currencyCode: account.currency.name())}</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -86,9 +86,13 @@
                                     <div class="box-balance col-lg-12 col-md-6">
                                         <label>Current balance</label>
 
-                                        <div class="balance">${accounts[ats - 1].currency.name()} ${accounts[ats - 1].ledger}</div>
+                                        <!--<div class="balance">${accounts[ats - 1].currency.name()} ${accounts[ats - 1].ledger}</div>-->
 
-                                        <div class="description-balance">${accounts[ats - 1].currency.name()} ${accounts[ats - 1].available} available</div>
+                                        <div class="balance">${formatNumber(number: accounts[ats - 1].ledger, type: 'currency', currencyCode: accounts[ats - 1].currency.name())}</div>
+
+                                        <!--<div class="description-balance">${accounts[ats - 1].currency.name()} ${accounts[ats - 1].available} available</div>-->
+
+                                        <div class="description-balance">${formatNumber(number: accounts[ats - 1].available, type: 'currency', currencyCode: accounts[ats - 1].currency.name())} available</div>
                                     </div>
                                     <ul class="ul-info col-lg-12 col-md-6">
                                         <li>

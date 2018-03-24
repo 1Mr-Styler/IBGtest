@@ -37,8 +37,8 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/tnw?useUnicode=yes&characterEncoding=UTF-8"
-            username = "root"
-            password = ""
+            username = "tnw"
+            password = "tnw2018"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

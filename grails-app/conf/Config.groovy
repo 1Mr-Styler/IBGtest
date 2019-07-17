@@ -58,6 +58,15 @@ grails {
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
     }
+
+    mail {
+        host = "smtp.live.com"
+        port = 587
+        username = "support@itcbcorp.com"
+        password = "1tt2018"
+        props = ["mail.smtp.starttls.enable":"true",
+                 "mail.smtp.port":"587"]
+    }
 }
 
 

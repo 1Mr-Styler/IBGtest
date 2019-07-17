@@ -79,6 +79,10 @@ class TransferController {
             flash.message = "error"
             jerrors << "Your account is still undergoing review and cannot make transactions at this moment."
         }
+        if (debitAccount.accountStatus == AccountStatus.BLOCKED) {
+            flash.message = "error"
+            jerrors << "Your account is restricted at this moment. Please visit the nearest branch or contact your account manager."
+        }
 
         // Check credit account
         def creditAccount = Account.findByNumber(params.account)
@@ -167,26 +171,38 @@ class TransferController {
             jerrors << "Your account is still undergoing review and cannot make transactions at this moment."
         }
 
+        if (debitAccount.accountStatus == AccountStatus.BLOCKED) {
+            flash.message = "error"
+            jerrors << "Your account is restricted at this moment. Please visit the nearest branch or contact your account manager."
+        }
+
         //Check tan
         if (params.tan != '3050') {
             flash.message = "error"
             jerrors << "Incorrect TAN number."
         }
 
+        def owt = new Owt(
+                bank: params.beneficiary_bank_name,
+                rname: params.beneficiary_customer_name,
+                raddress: params.beneficiary_customer_address,
+                account: params.beneficiary_customer_iban,
+                refmsg: params.information_ref,
+                amount: params.'amount_to_transfer',
+                currency: params.currency,
+                debit: params.debit_from
+        )
+
+        if(!owt.validate()){
+            flash.message = "error"
+            jerrors << "No fields should be left empty."
+        }
+
         if (jerrors.size() == 0) {
             flash.message = "success"
             jerrors << "Your request has been received and is being processed."
 
-            def owt = new Owt(
-                    bank: params.beneficiary_bank_name,
-                    rname: params.beneficiary_customer_name,
-                    raddress: params.beneficiary_customer_address,
-                    account: params.beneficiary_customer_iban,
-                    refmsg: params.information_ref,
-                    amount: params.'amount_to_transfer',
-                    currency: params.currency,
-                    debit: params.debit_from
-            )
+            owt.save(flush: true)
 
             new Transfers(type: TransferType.OWT, owt: owt, user: user).save(flush: true)
         }

@@ -185,9 +185,9 @@
                                             <a href="#"
                                                class="active">Debit/Credit</a></div>
 
-                                        <div class="table-cell transaction-balance">
+                                        %{--<div class="table-cell transaction-balance">
                                             Available balance
-                                        </div>
+                                        </div>--}%
 
                                         <div class="table-cell transaction-status">
                                             Status
@@ -223,9 +223,9 @@
                                                 ${transfer.type == tnw.TransferType.OWT ? transfer.owt.amount : transfer.ibt.amount}
                                             </div>
 
-                                            <div class="table-cell transaction-balance">
+                                            %{--<div class="table-cell transaction-balance">
                                                 Calculating...
-                                            </div>
+                                            </div>--}%
 
                                             <div class="table-cell transaction-status">
                                                 <div class="status-icon status-icon-${data['stat'][i]}" data-toggle="tooltip"

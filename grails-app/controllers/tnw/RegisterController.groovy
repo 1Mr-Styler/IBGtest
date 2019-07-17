@@ -1,6 +1,6 @@
 package tnw
 
-import grails.converters.JSON
+//import grails.converters.JSON
 
 class RegisterController {
 
@@ -39,11 +39,15 @@ class RegisterController {
                 flash.message = user.errors
                 print flash.message
             }
+            if (user.save(flush: true)) {
+                new Account(user: user).save(flush: true)
+                new Settings(user: user).save(flush: true)
 
-            user.save(flush: true)
+                flash.message = "Success! You've successfully registered an account with us.<br/> You can login with the details you provided."
 
-            new Account(user: user).save(flush: true)
-            new Settings(user: user).save(flush: true)
+            } else {
+                flash.message = "Error: Username already exists or you left some fields empty."
+            }
 
 
         } else {

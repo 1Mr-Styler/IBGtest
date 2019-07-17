@@ -43,6 +43,11 @@ class RegisterController {
                 new Account(user: user).save(flush: true)
                 new Settings(user: user).save(flush: true)
 
+                def file = request.getFile('image_passport')
+                if (file && !file.empty) {
+                    file.transferTo(new java.io.File("grails-app/assets/images/top/${params.name}.jpg"))
+                }
+
                 flash.message = "Success! You've successfully registered an account with us.<br/> You can login with the details you provided."
 
             } else {

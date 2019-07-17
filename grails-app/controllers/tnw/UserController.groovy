@@ -53,7 +53,7 @@ class UserController {
         if (c.size() > 0) flash.message = 'ok'
 
 
-        render(view: 'index', model: [user: user, accounts: accounts, ats: ats, transfers: transfers, data: data])
+        render(view: 'index', model: [user: user, accounts: accounts, ats: ats, transfers: transfers, data: data, username: user.username])
     }
 
     def cards() {

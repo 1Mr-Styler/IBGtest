@@ -106,6 +106,17 @@
                                     </ul>
                                 </div>
                             </div>
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="box-balance col-lg-12 col-md-6">
+                                        <asset:image src="top/${username}.jpg" style="height: 150px;"/>
+                                    </div>
+                                    <ul class="ul-info col-lg-12 col-md-6">
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

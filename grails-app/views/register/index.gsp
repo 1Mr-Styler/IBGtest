@@ -811,6 +811,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="field-type-text field-name-field-user-mobile-phone field-widget-text-textfield form-wrapper"
+                             id="edit-field-user-mobile-phone1">
+                            <div id="field-user-mobile-phone1-add-more-wrapper">
+                                <div class="form-item form-type-textfield form-item-field-user-mobile-phone-und-0-value">
+                                    <label for="edit-field-user-mobile-phone-und-0-value">Passport Photo</label>
+                                    <input required class="text-full form-control form-text" type="file"
+                                           id="edit-field-user-mobile-phone1-und-0-value"
+                                           name="image_passport"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </fieldset>
                 <input type="hidden" name="form_build_id" value="form-11EwhJ8BatstwFSCnSAXL6RWRt_v5aYMZPYPLhyzW2M"/>

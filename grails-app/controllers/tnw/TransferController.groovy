@@ -1,8 +1,6 @@
 package tnw
 
-import grails.converters.JSON
 
-import javax.transaction.Transactional
 
 class TransferController {
 
@@ -48,7 +46,6 @@ class TransferController {
         render(view: 'owt', model: [user: user, accounts: accounts])
     }
 
-    @Transactional
     def processibt() {
         if (session['user'] == null) {
             redirect uri: '/'
@@ -88,7 +85,7 @@ class TransferController {
         def creditAccount = Account.findByNumber(params.account)
         if (!creditAccount) {
             flash.message = "error"
-            jerrors << "Recipient account does NOT exist with Intercontinental Bankia."
+            jerrors << "Recipient account does NOT exist with Royal Bankia."
         }
 
         //check currency types
@@ -140,7 +137,6 @@ class TransferController {
         render(view: 'ibt', model: [user: user, accounts: accounts, jerrors: jerrors])
     }
 
-    @Transactional
     def processowt() {
         if (session['user'] == null) {
             redirect uri: '/'

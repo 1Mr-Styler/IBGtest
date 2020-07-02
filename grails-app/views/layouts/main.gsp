@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="${assetPath(src: "misc/favicon.png")}" type="image/vnd.microsoft.icon"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Intercontinental Bank: <g:layoutTitle default="Grails"/></title>
+    <title>Royal Bank: <g:layoutTitle default="Grails"/></title>
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="x-rim-auto-match" content="none">
 

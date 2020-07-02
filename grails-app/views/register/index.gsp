@@ -26,7 +26,7 @@
     <a href="${createLink(uri: '/')}" class="logo">
         <div class="default-logo-wrapper" style="padding-top: 26.5px;"><img style="width:201px; height34px;"
                                                                             src="${assetPath(src: "sites/all/themes/ebanq/images/logo.png")}"
-                                                                            alt="Intercontinental Bank"/></div>
+                                                                            alt="Royal Bank"/></div>
     </a></div>
 
 <div class="content">

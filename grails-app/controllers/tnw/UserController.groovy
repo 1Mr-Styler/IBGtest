@@ -1,7 +1,5 @@
 package tnw
 
-import com.sun.org.apache.xpath.internal.operations.Bool
-import grails.converters.JSON
 
 class UserController {
 

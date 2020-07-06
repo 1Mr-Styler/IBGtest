@@ -262,7 +262,7 @@
                 <div class="name">News</div>
             </a>
 
-            <a href="user/119.html" class="nav-item profile-nav-item">
+            <a href="${createLink(controller: 'user', action: 'profile')}" class="nav-item <g:if test="${actionName == 'profile'}">active</g:if>">
                 <div class="icon-profile" id="profile-fall">
                     <svg version="1.1" id="profile-icon" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -282,7 +282,7 @@
                 <div class="name">Profile</div>
             </a>
 
-            <a href="${createLink(controller: 'user', action: 'messages')}" class="nav-item messages-nav-item">
+            <a href="${createLink(controller: 'user', action: 'messages')}" class="nav-item <g:if test="${actionName == 'messages'}">active</g:if>">
                 <div class="icon-messages" id="messages-fall">
                     <svg version="1.1" id="messages" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

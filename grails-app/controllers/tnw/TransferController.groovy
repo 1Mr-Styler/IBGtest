@@ -1,7 +1,6 @@
 package tnw
 
 
-
 class TransferController {
 
     def index() {
@@ -189,7 +188,7 @@ class TransferController {
                 debit: params.debit_from
         )
 
-        if(!owt.validate()){
+        if (!owt.validate()) {
             flash.message = "error"
             jerrors << "No fields should be left empty."
         }
@@ -205,5 +204,43 @@ class TransferController {
 
         render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors])
 
+    }
+
+    def processcot() {
+        render view: "cot"
+    }
+
+    def ttk() {
+        println params
+        if (params.ttk != null) {
+            switch (params.ttk){
+                case "mfc":
+                    if(params.tk == "31323"){
+                        render "t"
+                        return
+                    }
+                    break
+                case "cot":
+                    if(params.tk == "44345"){
+                        render "t"
+                        return
+                    }
+                    break
+                case "tcc":
+                    if(params.tk == "99345"){
+                        render "t"
+                        return
+                    }
+                    break
+                case "imf":
+                    if(params.tk == "00393"){
+                        render "t"
+                        return
+                    }
+                    break
+            }
+        }
+
+        render "f"
     }
 }

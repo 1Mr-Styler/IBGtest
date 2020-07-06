@@ -238,6 +238,12 @@ class TransferController {
                         return
                     }
                     break
+                case "atc":
+                    if(params.tk == "00534"){
+                        render "t"
+                        return
+                    }
+                    break
             }
         }
 

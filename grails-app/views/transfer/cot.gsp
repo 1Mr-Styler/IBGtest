@@ -139,9 +139,9 @@ li.active {
                 // }
 
             }
-            c = c + 2;
+            c = c + 1;
 
-        }, 200);
+        }, 507);
 
         $('#sub').click(function (e) {
             e.preventDefault();
@@ -209,7 +209,7 @@ li.active {
                                 });
                             }
                             c = c + 2;
-                        }, 200);
+                        }, 1503);
 
                     } else {
                         tries += 1;

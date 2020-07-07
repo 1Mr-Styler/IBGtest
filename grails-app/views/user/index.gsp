@@ -110,7 +110,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="box-balance col-lg-12 col-md-6">
-                                        <asset:image src="top/${username}.jpg" style="height: 150px;"/>
+                                        <img src="${user.image}" style="height: 150px;">
                                     </div>
                                     <ul class="ul-info col-lg-12 col-md-6">
 
@@ -216,80 +216,80 @@
                                         <g:else>
                                             <div class="table-row ${data['cod'][i]}-row action-row" data-row-action="#">
                                         </g:else>
+                                        <div class="right-hover"></div>
+
+                                        <div class="table-cell transaction-date">
+                                            <div class="left-hover"></div>
+
+                                            <div><g:formatDate date="${transfer.date}" type="date"
+                                                               style="SHORT"/></div>
+
+                                            <div><g:formatDate date="${transfer.date}" type="time"
+                                                               style="MEDIUM"/></div>
+                                        </div>
+
+                                        <div class="table-cell transaction-id">
+                                            ${transfer.transaction}
+                                        </div>
+
+                                        <div class="table-cell transaction-description">
+                                            ${transfer.type == tnw.TransferType.OWT ? transfer.owt.refmsg : transfer.ibt.descrip}
+                                        </div>
+
+                                        <div class="table-cell transaction-debit-credit ${data['cod'][i]}">
+                                            ${transfer.type == tnw.TransferType.OWT ? transfer.owt.amount : transfer.ibt.amount}
+                                        </div>
+
+                                    %{--<div class="table-cell transaction-balance">
+                                        Calculating...
+                                    </div>--}%
+
+                                        <div class="table-cell transaction-status">
+                                            <div class="status-icon status-icon-${data['stat'][i]}"
+                                                 data-toggle="tooltip"
+                                                 data-placement="top"
+                                                 title=" ${data['stat'][i].capitalize()}"></div>
+
                                             <div class="right-hover"></div>
-
-                                            <div class="table-cell transaction-date">
-                                                <div class="left-hover"></div>
-
-                                                <div><g:formatDate date="${transfer.date}" type="date"
-                                                                   style="SHORT"/></div>
-
-                                                <div><g:formatDate date="${transfer.date}" type="time"
-                                                                   style="MEDIUM"/></div>
-                                            </div>
-
-                                            <div class="table-cell transaction-id">
-                                                ${transfer.transaction}
-                                            </div>
-
-                                            <div class="table-cell transaction-description">
-                                                ${transfer.type == tnw.TransferType.OWT ? transfer.owt.refmsg : transfer.ibt.descrip}
-                                            </div>
-
-                                            <div class="table-cell transaction-debit-credit ${data['cod'][i]}">
-                                                ${transfer.type == tnw.TransferType.OWT ? transfer.owt.amount : transfer.ibt.amount}
-                                            </div>
-
-                                            %{--<div class="table-cell transaction-balance">
-                                                Calculating...
-                                            </div>--}%
-
-                                            <div class="table-cell transaction-status">
-                                                <div class="status-icon status-icon-${data['stat'][i]}"
-                                                     data-toggle="tooltip"
-                                                     data-placement="top"
-                                                     title=" ${data['stat'][i].capitalize()}"></div>
-
-                                                <div class="right-hover"></div>
-                                            </div>
+                                        </div>
                                         </div>
                                     </g:each>
                                 </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <h2 class="element-invisible">Pages</h2>
+                            <h2 class="element-invisible">Pages</h2>
 
-                        <div class="item-list">
-                            <ul class="pager">
-                                <li class="pager-current first">
-                                    <div class="pager-link-inner-wrapper">1</div>
-                                </li>
-                                <li class="pager-next"><a
-                                        href="#">
-                                    <div class="pager-link-inner-wrapper">&gt;</div>
-                                </a></li>
-                                <li class="pager-last last"><a
-                                        href="#">
-                                    <div class="pager-link-inner-wrapper">&gt;&gt;</div>
-                                </a></li>
-                            </ul>
-                        </div>
+                            <div class="item-list">
+                                <ul class="pager">
+                                    <li class="pager-current first">
+                                        <div class="pager-link-inner-wrapper">1</div>
+                                    </li>
+                                    <li class="pager-next"><a
+                                            href="#">
+                                        <div class="pager-link-inner-wrapper">&gt;</div>
+                                    </a></li>
+                                    <li class="pager-last last"><a
+                                            href="#">
+                                        <div class="pager-link-inner-wrapper">&gt;&gt;</div>
+                                    </a></li>
+                                </ul>
+                            </div>
 
-                        <div class="pager-select">
-                            <div class="form-item form-type-select">
-                                <select class="form-control form-select">
-                                    <option value="10" selected="selected">10</option>
-                                    <option value="20">20</option>
-                                    <option value="40">40</option>
-                                    <option value="60">60</option>
-                                </select>
+                            <div class="pager-select">
+                                <div class="form-item form-type-select">
+                                    <select class="form-control form-select">
+                                        <option value="10" selected="selected">10</option>
+                                        <option value="20">20</option>
+                                        <option value="40">40</option>
+                                        <option value="60">60</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 
     <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by

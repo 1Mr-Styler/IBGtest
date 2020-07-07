@@ -129,7 +129,7 @@
                                     <label for="edit-pass-confirm">Confirm password <span class="form-required"
                                                                                           title="This field is required.">*</span>
                                     </label>
-                                    <input required class="form-control form-text required" type="password"
+                                    <input class="form-control form-text required" type="password"
                                            id="edit-pass-confirm" name="pass_confirm" size="30" maxlength="50"/>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                         <label for="edit-field-user-confirm-email-address-und-0-value">Confirm Email
                                         Address <span class="form-required" title="This field is required.">*</span>
                                         </label>
-                                        <input required class="text-full form-control form-text required" type="text"
+                                        <input class="text-full form-control form-text required" type="text"
                                                id="edit-field-user-confirm-email-address-und-0-value"
                                                name="field_user_confirm_email_address[und][0][value]" value="" size="60"
                                                maxlength="255"/>
@@ -839,20 +839,6 @@
                                     <input required class="text-full form-control form-text" type="text"
                                            id="edit-field-user-pa-address-und-0-value"
                                            name="field_user_pa_address[und][0][value]" value="" size="60"
-                                           maxlength="255"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field-type-text field-name-field-user-pa-address-2nd-line field-widget-text-textfield form-wrapper"
-                             id="edit-field-user-pa-address-2nd-line">
-                            <div id="field-user-pa-address-2nd-line-add-more-wrapper">
-                                <div class="form-item form-type-textfield form-item-field-user-pa-address-2nd-line-und-0-value">
-                                    <label for="edit-field-user-pa-address-2nd-line-und-0-value">Address (2nd
-                                    Line)</label>
-                                    <input class="text-full form-control form-text" type="text"
-                                           id="edit-field-user-pa-address-2nd-line-und-0-value"
-                                           name="field_user_pa_address_2nd_line[und][0][value]" value="" size="60"
                                            maxlength="255"/>
                                 </div>
                             </div>

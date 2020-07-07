@@ -20,11 +20,13 @@ class User {
     String answer
     Date lastlogin
     String ip
+    String image
 
     static constraints = {
         lastlogin nullable: true
         ip nullable: true
         username unique: true
+        image nullable: true
     }
 
 }

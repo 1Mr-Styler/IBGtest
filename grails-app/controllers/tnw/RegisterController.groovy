@@ -1,5 +1,7 @@
 package tnw
 
+import org.springframework.web.multipart.MultipartFile
+
 //import grails.converters.JSON
 
 class RegisterController {
@@ -10,6 +12,14 @@ class RegisterController {
 
     def save() {
 //        print(params.dump() as JSON)
+
+        //Upload Image
+        MultipartFile image = params.image_passport
+
+        String imageName = "tnw-${image.originalFilename}"
+        Cloudinary cloudinary = new Cloudinary()
+        def up = cloudinary.doUpload(image, "ads", imageName)
+        println(up)
 
         def cop = COP.values()[params.int('field_profile_type[und]')]
         def dob = "${params.dobday}/${params.dobmonth}/${params.dobyear}"
@@ -34,6 +44,7 @@ class RegisterController {
             user.answer = params['questions[0][answer]']
             user.ip = request.getRemoteAddr()
             user.lastlogin = new Date()
+            user.image = up.eager[0].secure_url.toString()
 
             if (!user.validate()) {
                 flash.message = user.errors

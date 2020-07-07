@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="form-item form-type-textfield form-item-beneficiary-bank-name">
-                        <label for="edit-beneficiary-bank-name">Name <span class="form-required"
+                        <label for="edit-beneficiary-bank-name">Bank Name <span class="form-required"
                                                                            title="This field is required.">*</span>
                         </label>
                         <input class="form-control form-text required" type="text"
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="form-item form-type-textfield form-item-beneficiary-bank-address">
-                        <label for="edit-beneficiary-bank-address">Address <span class="form-required"
+                        <label for="edit-beneficiary-bank-address">Bank Address <span class="form-required"
                                                                                  title="This field is required.">*</span>
                         </label>
                         <input class="form-control form-text required" type="text"
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="form-item form-type-textfield form-item-beneficiary-bank-location">
-                        <label for="edit-beneficiary-bank-location">Location <span class="form-required"
+                        <label for="edit-beneficiary-bank-location">Bank Location <span class="form-required"
                                                                                    title="This field is required.">*</span>
                         </label>
                         <input class="form-control form-text required" type="text"

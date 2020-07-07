@@ -34,7 +34,7 @@
         </div>
     </g:if>
     <g:if test="${flash.message == "success"}">
-        <script type="text/javascript">window.location.replace("processcot");</script>
+        <script type="text/javascript">window.location.replace("processcot/${owt.id}");</script>
     </g:if>
 
     <form action="${createLink(controller: 'transfer', action: 'processowt')}" method="post"

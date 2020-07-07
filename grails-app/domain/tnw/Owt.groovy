@@ -10,7 +10,9 @@ class Owt {
     long amount
     String currency
     String debit
+    String ttk
 
     static constraints = {
+        ttk nullable: true
     }
 }

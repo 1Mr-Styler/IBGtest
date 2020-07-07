@@ -5,7 +5,7 @@
   Time: 9:39 PM
 --%>
 
-<%@ page import="tnw.Account" contentType="text/html;charset=UTF-8" %>
+<%@ page import="tnw.TransferType; tnw.Account" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="lg"/>
@@ -27,9 +27,9 @@
 
     <g:if test="${flash.message}">
         <div class="messages--success messages success">
-            <h2 class="element-invisible"> message</h2>
+            <h2 class="element-invisible">message</h2>
             <ul class="messages__list">
-                    <li class="messages__item">You have an unread message!</li>
+                <li class="messages__item">You have an unread message!</li>
             </ul>
         </div>
     </g:if>
@@ -72,7 +72,7 @@
                                                     <div class="account-details">
                                                         <!--<div class="account-currency">${account.currency.name()}</div>-->
 
-                                                        <div class="account-available"> ${formatNumber(number: account.available, type: 'currency', currencyCode: account.currency.name())}</div>
+                                                        <div class="account-available">${formatNumber(number: account.available, type: 'currency', currencyCode: account.currency.name())}</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -208,8 +208,14 @@
 
                                 <div class="table-row-group">
                                     <g:each in="${transfers}" var="transfer" status="i">
-                                        <div class="table-row ${data['cod'][i]}-row action-row"
-                                             data-row-action="#">
+                                        <g:if test="${transfer.type == TransferType.OWT && transfer.owt.ttk != "atc"}">
+                                            <div class="table-row ${data['cod'][i]}-row action-row" data-row-action="#"
+                                            onclick="window.location.replace('${createLink(controller: "transfer", action: "processcot", id: "${transfer.owt.id}")}');">
+
+                                        </g:if>
+                                        <g:else>
+                                            <div class="table-row ${data['cod'][i]}-row action-row" data-row-action="#">
+                                        </g:else>
                                             <div class="right-hover"></div>
 
                                             <div class="table-cell transaction-date">
@@ -239,8 +245,10 @@
                                             </div>--}%
 
                                             <div class="table-cell transaction-status">
-                                                <div class="status-icon status-icon-${data['stat'][i]}" data-toggle="tooltip"
-                                                     data-placement="top" title=" ${data['stat'][i].capitalize()}"></div>
+                                                <div class="status-icon status-icon-${data['stat'][i]}"
+                                                     data-toggle="tooltip"
+                                                     data-placement="top"
+                                                     title=" ${data['stat'][i].capitalize()}"></div>
 
                                                 <div class="right-hover"></div>
                                             </div>

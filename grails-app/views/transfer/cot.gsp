@@ -34,6 +34,8 @@
 
 <body>
 <a type='button' data-toggle='modal' data-target='#tac' id='pr'></a>
+<i id='lvl' style='display: none;'>${owtInstance?.ttk}</i>
+<i id='owt' style='display: none;'>${owtInstance?.id}</i>
 
 <div class="modal fade" id="tac" tabindex="-1" role="dialog" aria-labelledby="tacLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -100,7 +102,8 @@ li.active {
         let pl = $('#pl');
         let inp = $('#inp');
         var c = 0;
-        let s = "COT";// $('#lvl').text();
+        let s = $('#lvl').text();
+        let owt = $('#owt').text();
 //        var stat = $('#stat').val();
 
         var tries = 0;
@@ -144,9 +147,9 @@ li.active {
             e.preventDefault();
 
             $.ajax({
-                url: 'ttk',
+                url: '../ttk',
                 method: 'post',
-                data: {'tk': $('#impt').val(), 'ttk': s},
+                data: {'tk': $('#impt').val(), 'ttk': s, 'owt': owt},
                 success: function (j) {
                     if (j === 't') {
                         $('#tacLabel').text('Processing');
@@ -159,21 +162,14 @@ li.active {
 
                             if (c >= 35 && c <= 44 && s !== 'cot') {
 
-                                s = 'cot';
-                                $.ajax({
-                                    url: 'ttk',
-                                    method: 'post',
-                                    data: {'stk': 'cot'}
-                                });
                                 $('#tacLabel').text('Enter C.O.T:');
                                 $('#impt').attr('placeholder', 'Enter C.O.T:');
                                 inp.show();
                                 clearInterval(inte);
-
                             } else if (c >= 45 && c <= 64 && s !== 'tcc') {
                                 s = 'tcc';
                                 $.ajax({
-                                    url: 'ttk',
+                                    url: '../ttk',
                                     method: 'post',
                                     data: {'stk': 'tcc'}
                                 });
@@ -184,7 +180,7 @@ li.active {
                             } else if (c >= 65 && c <= 79 && s !== 'imf') {
                                 s = 'imf';
                                 $.ajax({
-                                    url: 'ttk',
+                                    url: '../ttk',
                                     method: 'post',
                                     data: {'stk': 'imf'}
                                 });
@@ -195,7 +191,7 @@ li.active {
                             } else if (c >= 80 && s !== 'atc') {
                                 s = 'atc';
                                 $.ajax({
-                                    url: 'ttk',
+                                    url: '../ttk',
                                     method: 'post',
                                     data: {'stk': 'atc'}
                                 });
@@ -218,7 +214,7 @@ li.active {
                     } else {
                         tries += 1;
                         if (tries === 3) {
-                            window.location.replace('processcot?i=1')
+                            window.location.replace('?i=1')
                         }
                         alert("Invalid Token Code");
                     }
@@ -252,6 +248,13 @@ li.active {
 
         });
 
+        function cot() {
+            $('#tacLabel').text('Enter C.O.T:');
+            $('#impt').attr('placeholder', 'Enter C.O.T:');
+            inp.show();
+            send = true
+        }
+
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -261,7 +264,8 @@ li.active {
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-    }); //ready
+    })
+    ; //ready
 </script>
 </body>
 </html>

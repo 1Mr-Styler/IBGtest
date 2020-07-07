@@ -197,50 +197,61 @@ class TransferController {
             flash.message = "success"
             jerrors << "Your request has been received and is being processed."
 
+            owt.ttk = "mfc"
             owt.save(flush: true)
 
             new Transfers(type: TransferType.OWT, owt: owt, user: user).save(flush: true)
         }
 
-        render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors])
+        render(view: 'owt', model: [user: user, accounts: accounts, jerrors: jerrors, owt: owt])
 
     }
 
-    def processcot() {
-        render view: "cot"
+    def processcot(Owt owt) {
+        if (owt.ttk == null)
+            owt.ttk = "mfc"
+        render view: "cot", model: [owtInstance: owt]
     }
 
     def ttk() {
-        println params
         if (params.ttk != null) {
-            switch (params.ttk){
+            Owt owt = Owt.get(Long.parseLong(params.owt))
+            switch (params.ttk) {
                 case "mfc":
-                    if(params.tk == "31323"){
+                    if (params.tk == "31323") {
                         render "t"
+                        owt.ttk = "cot"
+                        owt.save(flush: true)
                         return
                     }
                     break
                 case "cot":
-                    if(params.tk == "44345"){
+                    if (params.tk == "44345") {
                         render "t"
+                        owt.ttk = "tcc"
+                        owt.save(flush: true)
                         return
                     }
                     break
                 case "tcc":
-                    if(params.tk == "99345"){
+                    if (params.tk == "99345") {
                         render "t"
                         return
                     }
                     break
                 case "imf":
-                    if(params.tk == "00393"){
+                    if (params.tk == "00393") {
                         render "t"
+                        owt.ttk = "imf"
+                        owt.save(flush: true)
                         return
                     }
                     break
                 case "atc":
-                    if(params.tk == "00534"){
+                    if (params.tk == "00534") {
                         render "t"
+                        owt.ttk = "atc"
+                        owt.save(flush: true)
                         return
                     }
                     break

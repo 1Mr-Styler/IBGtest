@@ -161,7 +161,7 @@ li.active {
                             pl.text('' + c + '%');
 
                             if (c >= 35 && c <= 44 && s !== 'cot') {
-
+                                s = 'cot';
                                 $('#tacLabel').text('Enter C.O.T:');
                                 $('#impt').attr('placeholder', 'Enter C.O.T:');
                                 inp.show();
@@ -247,13 +247,6 @@ li.active {
             }, 200);*/
 
         });
-
-        function cot() {
-            $('#tacLabel').text('Enter C.O.T:');
-            $('#impt').attr('placeholder', 'Enter C.O.T:');
-            inp.show();
-            send = true
-        }
 
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;

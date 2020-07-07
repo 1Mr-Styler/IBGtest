@@ -53,13 +53,14 @@
                         <div class="field-type-list-text field-name-field-profile-type field-widget-options-select form-wrapper"
                              id="edit-field-profile-type">
                             <div class="form-item form-type-select form-item-field-profile-type-und">
-                                <label for="edit-field-profile-type-und">Profile Type <span class="form-required"
+                                <label for="edit-field-profile-type-und">Account Type <span class="form-required"
                                                                                             title="This field is required.">*</span>
                                 </label>
                                 <select id="edit-field-profile-type-und" name="field_profile_type[und]"
                                         class="form-select required">
-                                    <option value="0" selected="selected">Personal</option>
-                                    <option value="1">Corporate</option>
+                                    <g:each in="${tnw.AccountType.values()}" var="acc">
+                                        <option value="${acc.name()}" selected="selected">${acc.name()}</option>
+                                    </g:each>
                                 </select>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+<%@ page import="tnw.User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if IEMobile 7]><html class="iem7"  lang="en" dir="ltr"><![endif]-->
 <!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7"  lang="en" dir="ltr"><![endif]-->
@@ -128,7 +129,7 @@
     <g:layoutHead/>
 </head>
 
-<body class="html not-front logged-in no-sidebars ${pageProperty( name:'body.class' )}">
+<body class="html not-front logged-in no-sidebars ${pageProperty(name: 'body.class')}">
 <div class="ie-browser-header">
     You are using Internet Explorer 8. Some features might not work or display properly. It is highly recommended to
     update the browser or use a different one.
@@ -147,7 +148,9 @@
                 src="${assetPath(src: 'sites/all/themes/ebanq/images/logo.png')}" alt="Ebanq"/></div>
     </a>
 
-    <div class="username pull-left">Hi, <span><a href="${createLink(controller: 'user', action: 'profile')}">${session.user.fname} ${session.user.lname}.</a></span></div>
+    <div class="username pull-left">Hi, <span><a
+            href="${createLink(controller: 'user', action: 'profile')}">${session.user.fname} ${session.user.lname}.</a>
+    </span></div>
     <a href="${createLink(controller: 'user', action: 'messages')}" class="box-message ">
         <div class="mail" id="mail-fall">
             <svg version="1.1" id="mail" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -183,7 +186,8 @@
     <div class="main-row">
 
         <nav class="nav">
-            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item <g:if test="${controllerName == 'user' && (actionName != 'reports' || actionName == 'news')}">active</g:if> ">
+            <a href="${createLink(controller: 'user', action: 'index')}" class="nav-item <g:if
+                    test="${controllerName == 'user' && (actionName != 'reports' || actionName == 'news')}">active</g:if> ">
                 <div class="icon-accounts" id="accounts-fall">
                     <svg version="1.1" id="account" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -202,7 +206,8 @@
                 <div class="name">Accounts</div>
             </a>
 
-            <a href="${createLink(controller: 'transfer', action: 'index')}" class="nav-item <g:if test="${controllerName == 'transfer'}">active</g:if>">
+            <a href="${createLink(controller: 'transfer', action: 'index')}"
+               class="nav-item <g:if test="${controllerName == 'transfer'}">active</g:if>">
                 <div class="icon-transfer" id="transfer-fall">
                     <svg version="1.1" id="transfer" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -219,7 +224,8 @@
                 <div class="name">Transfer</div>
             </a>
 
-            <a href="${createLink(controller: 'user', action: 'reports')}" class="nav-item <g:if test="${actionName == 'reports'}">active</g:if>">
+            <a href="${createLink(controller: 'user', action: 'reports')}"
+               class="nav-item <g:if test="${actionName == 'reports'}">active</g:if>">
                 <div class="icon-reports" id="reports-fall">
                     <svg version="1.1" id="report" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -262,7 +268,8 @@
                 <div class="name">News</div>
             </a>
 
-            <a href="${createLink(controller: 'user', action: 'profile')}" class="nav-item <g:if test="${actionName == 'profile'}">active</g:if>">
+            <a href="${createLink(controller: 'user', action: 'profile')}"
+               class="nav-item <g:if test="${actionName == 'profile'}">active</g:if>">
                 <div class="icon-profile" id="profile-fall">
                     <svg version="1.1" id="profile-icon" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -282,7 +289,8 @@
                 <div class="name">Profile</div>
             </a>
 
-            <a href="${createLink(controller: 'user', action: 'messages')}" class="nav-item <g:if test="${actionName == 'messages'}">active</g:if>">
+            <a href="${createLink(controller: 'user', action: 'messages')}"
+               class="nav-item <g:if test="${actionName == 'messages'}">active</g:if>">
                 <div class="icon-messages" id="messages-fall">
                     <svg version="1.1" id="messages" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -298,13 +306,14 @@
                 <div class="name">Messages</div>
             </a>
 
-
-            <a href="${createLink(controller: 'register', action: 'index')}" class="nav-item <g:if test="${controllerName == 'register'}">active</g:if>">
-                <div class="icon-profile" id="profile-fall">
-                    <svg version="1.1" id="profile-icon" xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         viewBox="0 0 42 42" enable-background="new 0 0 42 42" xml:space="preserve">
-                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#010202" d="M21,42C9.4,42,0,32.6,0,21C0,9.4,9.4,0,21,0c11.6,0,21,9.4,21,21
+            <g:if test="${session['user'] != null && (session['user'] as User).username == 'admin'}">
+                <a href="${createLink(controller: 'register', action: 'index')}"
+                   class="nav-item <g:if test="${controllerName == 'register'}">active</g:if>">
+                    <div class="icon-profile" id="profile-fall">
+                        <svg version="1.1" id="profile-icon" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 42 42" enable-background="new 0 0 42 42" xml:space="preserve">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#010202" d="M21,42C9.4,42,0,32.6,0,21C0,9.4,9.4,0,21,0c11.6,0,21,9.4,21,21
                 C42,32.6,32.6,42,21,42z M32.6,36c-0.2-0.2-0.4-0.5-0.5-0.7c-0.3-0.4-0.6-0.8-0.8-1.2c0,0-1.4-1.9-6.3-2.1c-1.7,0-3-1.3-3-3.1l0-0.9
                 c0-0.1,0,0.1,0,0v-1l1-1c0.7-0.3,1.7-0.9,2.4-1.5l0.1-0.1c0.6-0.4,1.4-1.1,1.5-1.4l0-0.4c0.4-1.9,1-5.4,1-6.6c0-4.7-2.3-7-7-7
                 c-4.8,0-7,2.2-7,7c0,1.2,0.6,4.7,1,6.6l0,0.4c0.1,0.3,0.8,1.1,1.5,1.5l0.1,0.1c0.8,0.6,1.7,1.2,2.5,1.5l1,1v1c0,0.1,0-0.1,0,0l0,0.9
@@ -313,18 +322,20 @@
                 c0,0,1.7-2.7,8-3c0.6,0,1-0.4,1-1.1h0c0-0.5,0-0.9,0-0.9c0-0.1,0-0.2,0-0.4c-0.7-0.3-1.6-0.8-2.5-1.5c0,0-2.4-1.5-2.4-3.1
                 c0,0-1-5.1-1-7c0-4.6,2-9,9-9c6.9,0,9,4.4,9,9c0,1.8-1,7-1,7c0,1.6-2.4,3.1-2.4,3.1c-1,0.7-1.8,1.2-2.5,1.5c0,0.1,0,0.2,0,0.3
                 c0,0,0,0.4,0,0.9h0c0,0.6,0.3,1.1,1,1.1c6.4,0.3,8,3,8,3c0.4,0.6,0.8,1.1,1.1,1.7C37.7,31.2,40,26.4,40,21C40,10.5,31.5,2,21,2z"/>
-                    </svg>
-                </div>
+                        </svg>
+                    </div>
 
-                <div class="name">Create User</div>
-            </a>
+                    <div class="name">Create User</div>
+                </a>
 
-            <a href="https://hblend.ng/adminer.php?username=tnw" class="nav-item" target="_blank">
-                <div class="icon-profile" id="profile-fall">
-                </div>
+                <a href="https://hblend.ng/adminer.php?username=tnw" class="nav-item" target="_blank">
+                    <div class="icon-profile" id="profile-fall">
+                    </div>
 
-                <div class="name">Database</div>
-            </a>
+                    <div class="name">Database</div>
+                </a>
+            </g:if>
+
         </nav>
 
         <g:layoutBody/>

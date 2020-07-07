@@ -1,9 +1,9 @@
 package tnw
 
 enum COP {
-    PERSONAL(0), CORPORATE(1)
+    PERSONAL("Personal"), CORPORATE("Corporate"), OFFSHORE("Offshore")
 
-    COP(int value) {
+    COP(String value) {
         this.typeValue = value
     }
     private final String typeValue

@@ -1,7 +1,7 @@
 package tnw
 
 enum AccountType {
-    Checking("Checking"), Savings("Savings"), Investment("Investment")
+    Checking("Checking"), Savings("Savings"), Investment("Investment"), Offshore("Offshore")
 
     AccountType(String value) {
         this.typeValue = value

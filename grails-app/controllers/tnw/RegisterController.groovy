@@ -21,10 +21,11 @@ class RegisterController {
         def up = cloudinary.doUpload(image, "ads", imageName)
         println(up)
 
-        def cop = COP.values()[params.int('field_profile_type[und]')]
+//        def cop = COP.valueOf(params['field_profile_type[und]'])
+        def acc = AccountType.valueOf(params['field_profile_type[und]'])
         def dob = "${params.dobday}/${params.dobmonth}/${params.dobyear}"
 
-        if (cop == COP.PERSONAL) {
+//        if (cop == COP.PERSONAL) {
             def user = new User()
             user.fname = params['field_user_first_name[und][0][value]']
             user.lname = params['field_user_last_name[und][0][value]']
@@ -51,7 +52,7 @@ class RegisterController {
                 print flash.message
             }
             if (user.save(flush: true)) {
-                new Account(user: user).save(flush: true)
+                new Account(user: user, accountType: acc).save(flush: true)
                 new Settings(user: user).save(flush: true)
 
                 def file = request.getFile('image_passport')
@@ -66,9 +67,9 @@ class RegisterController {
             }
 
 
-        } else {
+        /*} else {
             flash.message = "You can only open a Personal Account from this portal"
-        }
+        }*/
 
         render view: 'index'
     }

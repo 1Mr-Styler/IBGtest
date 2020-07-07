@@ -21,6 +21,7 @@ class User {
     Date lastlogin
     String ip
     String image
+    String status = "active"
 
     static constraints = {
         lastlogin nullable: true

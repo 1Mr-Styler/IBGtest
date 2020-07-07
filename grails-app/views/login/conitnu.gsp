@@ -29,6 +29,25 @@
         <li><a href="/register">Sign Up</a></li>--}%
     </ul>
 
+    <g:if test="${params.failed != null}">
+        <div class="messages--error messages error" style="width: 400px; margin-left: 40%">
+            <h2 class="element-invisible">Invalid Login. Please try again.</h2>
+            <ul class="messages__list">
+                <li class="messages__item">Invalid Login. Please try again</li>
+            </ul>
+        </div>
+    </g:if>
+
+    <g:if test="${params.banned != null}">
+        <div class="messages--error messages error" style="width: 400px; margin-left: 40%">
+            <h2 class="element-invisible">Please try again.</h2>
+            <ul class="messages__list">
+                <li class="messages__item">Your account status is ${params.banned}</li>
+                <li class="messages__item">Please contact your account manager.</li>
+            </ul>
+        </div>
+    </g:if>
+
     <div class="login-form">
 
         <form action="${createLink(controller: 'register', action: 'login')}" method="post" id="user-login"

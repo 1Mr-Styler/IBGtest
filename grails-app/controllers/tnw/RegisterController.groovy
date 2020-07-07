@@ -77,11 +77,15 @@ class RegisterController {
         def user = User.findWhere(username: params.name, password: params.pass)
 
         if (user) {
-            session['user'] = user
+            if (user.status.toLowerCase().equals("active")) {
+                session['user'] = user
 
-            redirect(controller: 'user')
+                redirect(controller: 'user')
+            } else {
+                redirect(uri: "/login/conitnu?banned=${user.status}")
+            }
         } else {
-            redirect(uri: '/?failed')
+            redirect(uri: '/login/conitnu?failed')
         }
     }
 }

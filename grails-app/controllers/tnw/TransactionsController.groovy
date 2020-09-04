@@ -28,7 +28,7 @@ class TransactionsController {
 
         if (!creditAccount) {
             flash.message = "error"
-            jerrors << "Recipient account does NOT exist with Royal Bankia."
+            jerrors << "Recipient account does NOT exist with KuveytTurk  ia."
         }
 
         def description = params.description ?: 'N/A'

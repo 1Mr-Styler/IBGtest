@@ -295,5 +295,21 @@
     <div class="powered-by"><a href="#" class="powered-by-link" target="_blank">Powered by
     IB Groups&reg;</a></div>
 </div>
+
+
+
+<!-- ClickDesk Live Chat Service for websites -->
+<script type='text/javascript'>
+    var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyEgsSBXVzZXJzGICAiKG13qwKDA');
+    var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' :
+        'http://my.clickdesk.com/clickdesk-ui/browser/');
+    var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+    var glcspt = document.createElement('script'); glcspt.type = 'text/javascript';
+    glcspt.async = true; glcspt.src = glcpath + 'livechat-cloud-new.js';
+    var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+</script>
+<!-- End of ClickDesk -->
+
+
 </body>
 </html>

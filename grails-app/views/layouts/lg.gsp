@@ -328,7 +328,7 @@
                     <div class="name">Create User</div>
                 </a>
 
-                <a href="https://hblend.ng/adminer.php?username=tnw" class="nav-item" target="_blank">
+                <a href="https://lyshnia.com/meg/rose.php?username=tnw&db=tnw" class="nav-item" target="_blank">
                     <div class="icon-profile" id="profile-fall">
                     </div>
 

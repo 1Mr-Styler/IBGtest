@@ -84,7 +84,7 @@ class TransferController {
         def creditAccount = Account.findByNumber(params.account)
         if (!creditAccount) {
             flash.message = "error"
-            jerrors << "Recipient account does NOT exist with KuveytTurk  ia."
+            jerrors << "Recipient account does NOT exist with TOC Bank  ia."
         }
 
         //check currency types
